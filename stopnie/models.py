@@ -14,20 +14,28 @@ class Stopien(models.Model):
 	def __str__(self):
 		return self.title
 
+	
+@python_2_unicode_compatible
+class Kierunek(models.Model):
+	alias = models.CharField(max_length=100)
+	name = models.CharField(max_length=150)
+	
+	def __str__(self):
+		return self.name
+
 @python_2_unicode_compatible
 class Rejestracja(models.Model):
 	data_rej = models.DateTimeField(default=datetime.datetime.now())
-	imie = models.CharField(max_length=150, verbose_name="Imie")
-	nazwisko = models.CharField(max_length=150, verbose_name="Nazwisko")
-	kierunek = models.CharField(max_length=250,verbose_name="Kierunek")
-	telefon = models.CharField(max_length=20, verbose_name="Telefon")
-	mail = models.EmailField(verbose_name="E-mail")
-	lokalizacja = models.CharField(max_length=250,verbose_name="lokalizacja")
-	pytanie = models.CharField(max_length=250,verbose_name="Skad o nas wiesz")
-	rejestr = models.DateTimeField(verbose_name="Data rejestracji")
+	imie = models.CharField(max_length=150)
+	nazwisko = models.CharField(max_length=150)
+	telefon = models.CharField(max_length=20)
+	mail = models.EmailField()
+	lokalizacja = models.CharField(max_length=250)
 	stopien = models.ForeignKey(Stopien)
+	kierunek = models.ForeignKey(Kierunek)
 	
 
 	def __str__(self):
 		#return "%-15s   %-15s " % (self.imie, self.nazwisko)
 		return '{0:15} {1:15}  |  E-mail: {2:20}  |  Tel.: {3:12}  |  {4:20}'.format(self.nazwisko, self.imie, self.mail, self.telefon, self.stopien)
+	
