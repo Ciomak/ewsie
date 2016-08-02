@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+{% block zapis %}
+	<h3>Zapisz sie na {{ stopien.title }}</h3>
+{% endblock %}
+
+{% block st %}	
+		<br><br><br>
+		<h3>Aby zarejestrowac sie na studia kliknij<br>
+			na ponizszy link a nastepnie wypelnij <br>
+			formularz rejestracyjny<br><br>
+		<a href="/stopnie/{{ stopien.id }}/add_rejestracja/"><input type="submit" class="btn btn-inverse" name="submit" value="Zapisz" /></a></h3>
+		
+{% endblock %} 
+
+{% block stopka %}
+	<h3><a href="/stopnie/">Powrot</a></h3>
+{% endblock %}

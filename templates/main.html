@@ -1,0 +1,47 @@
+
+{% load static %}
+<HTML>
+<HEAD>
+	  <meta charset="utf-8">
+      <META NAME="Description" CONTENT="opis dokumentu">
+      <META NAME="Author" CONTENT="Sebastian Lemanski">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-responsive.min.css' %}">
+      <link rel="Shortcut icon" href="{% static 'img/icon.png' %}" />
+      <TITLE></TITLE>
+</HEAD>
+<BODY>
+<!--/HEADER-->
+
+<div id="caly_blok">
+     <div id="naglowek">
+          <a href="http://www.eu.edu.pl/"><img src="{% static 'img/logo.png' %}" alt="Blad img" /></a>
+
+     </div>
+     <div id="robocze">
+           <div id="lewy">
+                <hr>
+				{% block zapis %}
+				{% endblock %}
+				<br>
+				<br>
+                <img src="{% static 'img/fotonew.png' %}" alt="Blad img" width="100%"  />
+                <br><br>
+           </div>
+           <div id="prawy">
+				  {% block st %}
+				  {% endblock %}
+           </div>
+     </div>
+     <div id="stopka">
+          <hr>
+		  {% block stopka %}
+		  {% endblock %}
+     </div>
+</div>
+
+<!--FOOTER-->
+</BODY>
+</HTML>
+<!--/FOOTER-->

@@ -1,0 +1,5 @@
+.settings/*
+*.pyc
+ewsie.db
+.project
+.pydevproject
