@@ -27,25 +27,28 @@ def stopien(request, stopien_id):
 	
 	return HttpResponse(template.render(context, request))
 
-def add_rejestracja(request,stopien_id):
+def add_rejestracja(request, stopien_id):
 	r = Stopien.objects.get(id=stopien_id)
 
 	if request.method == "POST":
-		cf = RejestracjaForm(request.POST)
-		if cf.is_valid():
-			comment = cf.save(commit=False)
-			comment.rejestr = timezone.now()
+		form = RejestracjaForm(request.POST)
+		if form.is_valid():
+			comment = form.save(commit=False)
+			comment.data_rej = timezone.now()
 			comment.stopien = r
 			comment.save()
 
 			return HttpResponseRedirect('/') #przekierowanie do strony glownej
 
 	else:
-		cf = RejestracjaForm()
+		form = RejestracjaForm()
 
 	args = {}
 	args.update(csrf(request))
 	args['stopien'] = r # Stopien studiow 
-	args['form'] = cf  # formularz
+	args['form'] = form  # formularz
 
 	return render_to_response('stopnie/add_rejestracja.html', args)
+
+def add_ankieta(request):
+	pass
