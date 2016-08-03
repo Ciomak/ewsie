@@ -1,6 +1,6 @@
-.settings/*
+/.settings/*
 *.pyc
 ewsie.db
 .project
 .pydevproject
-stopnie/migrations/*
+/stopnie/migrations/*
