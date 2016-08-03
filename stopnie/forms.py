@@ -8,7 +8,7 @@ from models import Kierunek
 class RejestracjaForm(forms.Form):
 	imie = forms.CharField(max_length=150, label='Imię')
 	nazwisko = forms.CharField(max_length=150, label='Nazwisko')
-	kierunek = forms.ChoiceField(Kierunek.objects.all().name)
+	kierunek = forms.ChoiceField()
 	lokalizacja = forms.CharField(max_length=150)
 	mail = forms.EmailField(label='E-mail')
 	telefon = forms.CharField(max_length=20, label='Telefon')
