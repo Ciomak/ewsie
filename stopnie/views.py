@@ -5,7 +5,7 @@ from django.template import loader
 from django.template.context_processors import csrf
 from django.utils import timezone
 
-from forms import RejestracjaForm
+from forms import KandydatForm, AnkietaForm
 from stopnie.models import Stopien
 
 
@@ -28,20 +28,24 @@ def stopien(request, stopien_id):
 	return HttpResponse(template.render(context, request))
 
 def add_rejestracja(request, stopien_id):
+	
 	r = Stopien.objects.get(id=stopien_id)
 
 	if request.method == "POST":
-		form = RejestracjaForm(request.POST)
+		form = KandydatForm(request.POST)
 		if form.is_valid():
-			comment = form.save(commit=False)
-			comment.data_rej = timezone.now()
-			comment.stopien = r
-			comment.save()
-
-			return HttpResponseRedirect('/') #przekierowanie do strony glownej
+			kandydat = form.save(commit=False)
+			kandydat.data_rej = timezone.now()
+			kandydat.stopien = r
+			kandydat.save()
+			
+			if kandydat.zgoda:
+				add_ankieta(request, kandydat)
+			else:
+				return HttpResponseRedirect('/stopnie') #przekierowanie do strony glownej
 
 	else:
-		form = RejestracjaForm()
+		form = KandydatForm()
 
 	args = {}
 	args.update(csrf(request))
@@ -50,5 +54,9 @@ def add_rejestracja(request, stopien_id):
 
 	return render_to_response('stopnie/add_rejestracja.html', args)
 
-def add_ankieta(request):
-	pass
+def add_ankieta(request, kandydat_id):
+	
+	if request.method == 'POST':
+		form = AnkietaForm(request.POST)
+		if form.is_valid():
+			pass

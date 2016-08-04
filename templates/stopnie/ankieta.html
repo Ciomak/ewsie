@@ -1,0 +1,12 @@
+{% extends main.html %}
+{% block st %}
+
+<form action="/stopnie/{{ kandydat.id }}/ankieta/" method="post" class="form horizontal well">
+	{% csrf_token %}
+	{% for form in formset %}
+		{{ forms.as_p }}
+	{% endfor %} 
+	<input type="submit" class="btn btn-inverse" name="submit" value="Zapisz" />
+</form>
+
+{% endblock %}
