@@ -6,7 +6,7 @@ from django.template.context_processors import csrf
 from django.utils import timezone
 
 from forms import KandydatForm, AnkietaForm
-from stopnie.models import Stopien
+from stopnie.models import Stopien, Kandydat, Pytanie, Choices
 
 
 def stopnie(request):
@@ -40,7 +40,7 @@ def add_rejestracja(request, stopien_id):
 			kandydat.save()
 			
 			if kandydat.zgoda:
-				add_ankieta(request, kandydat)
+				return HttpResponseRedirect('/stopnie/{0}/ankieta'.format(kandydat.id))
 			else:
 				return HttpResponseRedirect('/stopnie') #przekierowanie do strony glownej
 
@@ -55,8 +55,16 @@ def add_rejestracja(request, stopien_id):
 	return render_to_response('stopnie/add_rejestracja.html', args)
 
 def add_ankieta(request, kandydat_id):
+	kandydat = Kandydat.objects.get(id=kandydat_id)
+	values = Choices.objects.all()
 	
 	if request.method == 'POST':
-		form = AnkietaForm(request.POST)
-		if form.is_valid():
-			pass
+		pass
+	
+	args = {}
+	args.update(csrf(request))
+# 	args['fields'] = fields
+	args['values'] = values
+	args['kandydat'] = kandydat
+	
+	return render_to_response('stopnie/ankieta.html', args)

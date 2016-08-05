@@ -38,12 +38,28 @@ class Kandydat(models.Model):
 		#return "%-15s   %-15s " % (self.imie, self.nazwisko)
 		return '{0:15} {1:15}  |  E-mail: {2:20}  |  Tel.: {3:12}  |  {4:20}'.format(self.nazwisko, self.imie, self.mail, self.telefon, self.stopien)
 	
+@python_2_unicode_compatible
 class Pytanie(models.Model):
 	alias = models.CharField(max_length=50)
 	name = models.TextField()
+	widget = models.CharField(max_length=50)
 	
+	def __str__(self):
+		return self.name
 	
+@python_2_unicode_compatible
 class Odpowiedz(models.Model):
 	kandydat = models.ManyToManyField(Kandydat)
 	pytanie = models.ForeignKey(Pytanie)
 	odpowiedz = models.TextField()
+	
+	def __str__(self):
+		return self.odpowiedz
+
+@python_2_unicode_compatible
+class Choices(models.Model):
+	choice = models.CharField(max_length=150)
+	pytanie = models.ForeignKey(Pytanie)
+	
+	def __str__(self):
+		return self.choice

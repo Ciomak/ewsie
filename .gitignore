@@ -3,4 +3,4 @@
 ewsie.db
 .project
 .pydevproject
-/stopnie/migrations/*
+/stopnie/migrations
