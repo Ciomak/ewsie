@@ -1,5 +1,5 @@
 from django.contrib import admin
-from stopnie.models import Stopien, Kandydat, Kierunek, Odpowiedz, Pytanie,\
+from .models import Stopien, Kandydat, Kierunek, Odpowiedz, Pytanie,\
     Choices
 
 admin.site.register(Stopien)

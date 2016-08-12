@@ -4,3 +4,4 @@ ewsie.db
 .project
 .pydevproject
 /stopnie/migrations
+/ewsie/settings.py

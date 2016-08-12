@@ -3,9 +3,16 @@
 
 <form action="/stopnie/{{ kandydat.id }}/ankieta/" method="post" class="form horizontal well">
 	{% csrf_token %}
-	{% for field in fields %}
-		{{ field.name }}<br />
-			<input type="{{ field.widget }}" name="{{ field.alias }}" > 
+	{% for pytanie in pytania %}
+		<h4>{{ pytanie.name }}</h4>
+		{% if pytanie.widget == "radio" %}
+			{% for choice in pytanie.choices_set.all|dictsort:"id" %}
+				<input type="{{ pytanie.widget }}" name="{{ pytanie.alias }}" id="{{ pytanie.alias }}{{ choice.id }}" value="{{ choice.choice }}">{{ choice.choice }}<br />
+				<!-- <label for="{{ pytanie.alias }}{{ choice.id }}">{{ choice.choice }}</label> -->
+			{% endfor %}
+		{% else %}
+			<input type="{{ pytanie.widget }}" name="{{ pytanie.alias }}" /><br />
+		{% endif %}
 	{% endfor %}
 	<input type="submit" class="btn btn-inverse" name="submit" value="Zapisz" />
 </form>
