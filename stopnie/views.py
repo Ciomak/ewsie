@@ -6,7 +6,7 @@ from django.template.context_processors import csrf
 from django.utils import timezone
 from django.views.generic import View
 
-from forms import KandydatForm, AnkietaForm
+from forms import KandydatForm
 from stopnie.models import Stopien, Kandydat, Pytanie, Odpowiedz
 
 

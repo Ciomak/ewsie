@@ -1,6 +1,6 @@
 from django.conf.urls import url
-from . import views
+from statistica import views
 
 urlpatterns = [
-    url(r'^$', views.Login.as_view(), name='login')
+    url(r'^$', views.LoginView.as_view(), name='login'),
 ]
