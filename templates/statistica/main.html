@@ -4,7 +4,7 @@
 	  <meta charset="utf-8">
       <META NAME="Description" CONTENT="opis dokumentu">
       <META NAME="Author" CONTENT="Kamil Ciomcia">
-      <link rel="stylesheet" type="text/css" href="{% static 'css/stopnie/style.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/statistica/style.css' %}">
 	  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
 	  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-responsive.min.css' %}">
       <link rel="Shortcut icon" href="{% static 'img/icon.png' %}" />
@@ -17,13 +17,8 @@
 	{% include "header.html" %}
      <div id="robocze">
            <div id="lewy">
-                <hr>
 				{% block zapis %}
 				{% endblock %}
-				<br>
-				<br>
-                <img src="{% static 'img/fotonew.png' %}" alt="Blad img" width="100%"  />
-                <br><br>
            </div>
            <div id="prawy">
 				  {% block st %}
@@ -31,7 +26,6 @@
            </div>
      </div>
      <div id="stopka">
-          <hr>
 		  {% block stopka %}
 		  {% endblock %}
      </div>

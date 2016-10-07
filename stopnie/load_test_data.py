@@ -90,9 +90,9 @@ def import_survey():
 
             if pytanie.alias == 'plec':
                 if candidate.imie in IMIE_M:
-                    a.odpowiedz == PLEC[0]
+                    a.odpowiedz = PLEC[0]
                 elif candidate.imie in IMIE_K:
-                    a.odpowiedz == PLEC[1]
+                    a.odpowiedz = PLEC[1]
             elif pytanie.alias == 'wiek':
                 a.odpowiedz = random.randint(WIEK[0], WIEK[1])
             elif pytanie.alias == 'lok':
@@ -103,15 +103,3 @@ def import_survey():
             a.save()
 
             a.kandydat.add(candidate)
-
-
-
-def test():
-    candidates = Kandydat.objects.all().filter(zgoda=1)
-    pytania = Pytanie.objects.all()
-
-    a = Odpowiedz()
-    a.odpowiedz = u'Mężczyzna'
-    a.pytanie = pytania[0]
-    a.save()
-    a.kandydat.add(candidates[1])

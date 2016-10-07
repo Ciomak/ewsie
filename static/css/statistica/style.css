@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+
+#naglowek {
+	background-color: ButtonFace;
+	height: 82px; 
+}
+
+#naglowek{
+	width: 100%;
+}
+
+#naglowek > a {
+	margin-left: 20px;
+}
+
+#lewy {
+	float: 'left';
+	width: 30%;
+}
+
+#prawy {
+	float: 'left';
+	width: 70%;
+}
+
+#robocze {
+	height: 100%;
+}

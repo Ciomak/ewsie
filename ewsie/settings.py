@@ -15,8 +15,13 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'C:\Labs\workspace\eclipse\ewsie\ewsie.db',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'HOST': 'localhost',
+        'PORT': 5432,
+        'NAME': 'ewsie',
+        'USER': 'postgres',
+        'PASSWORD': 'rexmil',
+        
         # Or path to database file if using sqlite3
         # The following settings are not used with sqlite3:
     }
@@ -132,6 +137,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
 	'stopnie',
+    'statistica',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'

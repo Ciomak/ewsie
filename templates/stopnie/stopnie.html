@@ -4,7 +4,7 @@
 	<br><br>
     <h1> Zapisz sie na studia<h1><br>
 		{% if stopnie.count > 0 %}
-			{% for stopien in stopnie %}
+			{% for stopien in stopnie|dictsort:"id"%}
 				<a href="/stopnie/{{ stopien.id }}"><img src="{{ stopien.image.url }}" width="150" /></a>
 			{% endfor %}
 		{% else %}

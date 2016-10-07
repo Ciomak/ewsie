@@ -4,7 +4,7 @@
 
 <form action="/statistica/" method="post" class="form horizontal well">
 	{% csrf_token %}
-	{% if comment is not None %} {{comment}} {% endif %}
+	{% if comment is not None %} <font size="8" color="red">{{comment}}</font> {% endif %}
 	{{ form.as_p }} 
 	<input type="submit" class="btn btn-inverse" name="submit" value="Dalej" />
 </form>

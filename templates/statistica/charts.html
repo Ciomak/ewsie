@@ -1,0 +1,8 @@
+{% extends "statistica/main.html" %}
+
+{% block zapis %}
+{% endblock %}
+
+{% block st %}
+	<embed type="image/svg+xml" src= {{ chart.render_django_response|safe }} />
+{% endblock %}
