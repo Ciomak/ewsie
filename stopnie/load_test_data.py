@@ -35,7 +35,7 @@ def import_data():
         a.mail = ''.join([a.imie.lower(), '.', a.nazwisko.lower(), random.choice(MAIL)])
         a.lokalizacja = random.choice(LOKALIZACJA)
         a.zgoda = random.choice(BOOL)
-        a.stopien = Stopien.objects.get(id=1)
+        a.stopien = Stopien.objects.get(id=2)
         a.kierunek = random.choice(KIERUNEK)
         a.save()
 
@@ -48,7 +48,7 @@ def import_data():
         a.mail = ''.join([a.imie.lower(), '.', a.nazwisko.lower(), random.choice(MAIL)])
         a.lokalizacja = random.choice(LOKALIZACJA)
         a.zgoda = random.choice(BOOL)
-        a.stopien = Stopien.objects.get(id=1)
+        a.stopien = Stopien.objects.get(id=2)
         a.kierunek = random.choice(KIERUNEK)
         a.save()
 
@@ -61,7 +61,7 @@ def import_data():
         a.mail = ''.join([a.imie.lower(), '.', a.nazwisko.lower(), random.choice(MAIL)])
         a.lokalizacja = random.choice(LOKALIZACJA)
         a.zgoda = random.choice(BOOL)
-        a.stopien = Stopien.objects.get(id=2)
+        a.stopien = Stopien.objects.get(id=3)
         a.kierunek = random.choice(KIERUNEK)
         a.save()
 
@@ -74,7 +74,7 @@ def import_data():
         a.mail = ''.join([a.imie.lower(), '.', a.nazwisko.lower(), random.choice(MAIL)])
         a.lokalizacja = random.choice(LOKALIZACJA)
         a.zgoda = random.choice(BOOL)
-        a.stopien = Stopien.objects.get(id=2)
+        a.stopien = Stopien.objects.get(id=3)
         a.kierunek = random.choice(KIERUNEK)
         a.save()
 
@@ -102,4 +102,4 @@ def import_survey():
 
             a.save()
 
-            a.kandydat.add(candidate)
+            a.kandydat.add(candidate)  

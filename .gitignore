@@ -5,3 +5,4 @@ ewsie.db
 .pydevproject
 /stopnie/migrations
 /ewsie/settings.py
+/statistica/migrations

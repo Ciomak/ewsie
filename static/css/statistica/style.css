@@ -1,28 +1,52 @@
 @CHARSET "UTF-8";
 
+#caly_blok {
+  height: 700px;
+}
+
 #naglowek {
 	background-color: ButtonFace;
 	height: 82px; 
 }
 
-#naglowek{
-	width: 100%;
-}
-
-#naglowek > a {
-	margin-left: 20px;
+#robocze {
+	width:100%;
 }
 
 #lewy {
-	float: 'left';
-	width: 30%;
+  float:left;
+  width:20%;
+  min-width: 400px;
 }
 
 #prawy {
-	float: 'left';
-	width: 70%;
+	float: left;
+	width: 80%;
+	min-width: 400px;
+	text-align:center;
 }
 
-#robocze {
-	height: 100%;
+#caly_blok,#naglowek, #stopka {
+	width:100%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+    background-color: #555;
+    color: white;
 }

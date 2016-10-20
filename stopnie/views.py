@@ -74,14 +74,14 @@ class Ankieta(View):
 
     def get(self, request, kandydat_id, *args, **kwargs):
 
-        fields = Pytanie.objects.all()
+        pytania = Pytanie.objects.all()
 
         args = {}
         args.update(csrf(request))
-        args['fields'] = fields
+        args['pytania'] = pytania
         args['kandydat'] = self.get_qs(kandydat_id)
 
-        return render_to_response(self.template_name, {'fields': fields})
+        return render_to_response(self.template_name, context=args)
 
     def post(self, request, kandydat_id, *args, **kwargs):
         pytania = Pytanie.objects.all()
@@ -97,17 +97,3 @@ class Ankieta(View):
 
     def get_qs(self, id):
         return Kandydat.objects.get(id=id)
-
-def add_ankieta(request, kandydat_id):
-    kandydat = Kandydat.objects.get(id=kandydat_id)
-    pytania = Pytanie.objects.all()
-
-    if request.method == 'POST':
-        pass
-
-    args = {}
-    args.update(csrf(request))
-    args['pytania'] = pytania
-    args['kandydat'] = kandydat
-
-    return render_to_response('stopnie/ankieta.html', args)

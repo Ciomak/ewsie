@@ -1,8 +1,38 @@
 {% extends "statistica/main.html" %}
 
 {% block zapis %}
+	<div>
+	{% for variable in variables %}
+		<ul>
+			<li>
+				<a href="/statistica/charts/{{ variable.alias }}">{{ variable.name }}</a>
+			</li>
+		</ul>
+	{% endfor %}
+	</div>
+	<br>
+	<br>
+	
+	<div>
+		<form action="/statistica/charts/" method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" name="refresh" value="Odśwież" class="btn btn-inverse">
+		</form>
+	</div>
 {% endblock %}
 
 {% block st %}
-	<embed type="image/svg+xml" src= {{ chart.render_django_response|safe }} />
+	<div id="chart" height="80%">
+		{{ chart.render|safe }}
+	</div>
+	<div>
+	{% for key, value in data.iteritems %}
+		<ul>
+			<li>
+				{{ key }}  | {{ value }}
+			</li>
+		</ul>
+	{% endfor %}
+	</div>
 {% endblock %}

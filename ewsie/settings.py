@@ -16,7 +16,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'HOST': 'localhost',
+        'HOST': '10.0.2.2',
         'PORT': 5432,
         'NAME': 'ewsie',
         'USER': 'postgres',
@@ -136,7 +136,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-	'stopnie',
+    'stopnie',
     'statistica',
 )
 
